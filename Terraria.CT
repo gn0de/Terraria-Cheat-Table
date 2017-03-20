@@ -1,0 +1,2699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="24">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>219</ID>
+      <Description>"fullbright (for color/RGB lighting mode)"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//define(fullbright2, Terraria.Lighting::doColors_Mode0_Swipe+c2)
+define(fullbright2, Terraria.Lighting::doColors_Mode0_Swipe+15d)
+[ENABLE]
+assert(fullbright2, D9 46 08 D9 45 C4)
+alloc(fullbright_mem2, 1024)
+label(fullbright_ret2)
+
+fullbright_mem2:
+mov [esi+8],(float)1.0 //lightingstate[thispixel].r
+mov [esi+10],(float)1.0 //lightingstate[thispixel].g
+mov [esi+18],(float)1.0 //lightingstate[thispixel].b
+fld dword ptr [esi+8] //lightingstate[thispixel].r
+fld dword ptr [ebp-3c]
+jmp fullbright_ret2
+
+fullbright2:
+jmp fullbright_mem2
+nop
+fullbright_ret2:
+ 
+[DISABLE]
+dealloc(fullbright_mem2)
+fullbright2:
+fld dword ptr [esi+8]
+fld dword ptr [ebp-3c]
+//Alt: db D9 46 08 D9 45 C4
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>35</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>260</ID>
+      <Description>"Players []"</Description>
+      <Options moHideChildren="1"/>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//define(player, Terraria.Lighting::LightTiles+10e)
+define(player, Terraria.Lighting::LightTiles+11e)
+assert(player, ?? ?? ?? ?? 8b 15 ?? ?? ?? ?? 3b 50 04)
+
+label(players)
+registersymbol(players)
+
+player:
+players:
+
+[DISABLE]
+
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>261</ID>
+          <Description>"mem address (read only)"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>players</Address>
+          <Offsets>
+            <Offset>0</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>263</ID>
+          <Description>"plr1 address (read only)"</Description>
+          <ShowAsHex>1</ShowAsHex>
+          <VariableType>4 Bytes</VariableType>
+          <Address>[Terraria.Lighting::LightTiles+11e]</Address>
+          <Offsets>
+            <Offset>8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>262</ID>
+          <Description>"player 1"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>331</ID>
+              <Description>"Name"</Description>
+              <ShowAsHex>1</ShowAsHex>
+              <VariableType>String</VariableType>
+              <Length>20</Length>
+              <Unicode>1</Unicode>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>8</Offset>
+                <Offset>4</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>264</ID>
+              <Description>"Life"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>32C</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>265</ID>
+              <Description>"Mana"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>330</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>266</ID>
+              <Description>"Breath"</Description>
+              <VariableType>4 Bytes</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>2A4</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>267</ID>
+              <Description>"Defense"</Description>
+              <ShowAsSigned>1</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>320</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>269</ID>
+              <Description>"pos_x"</Description>
+              <VariableType>Float</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>24</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>270</ID>
+              <Description>"pos_y"</Description>
+              <VariableType>Float</VariableType>
+              <Address>[players]</Address>
+              <Offsets>
+                <Offset>28</Offset>
+                <Offset>8</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>273</ID>
+              <Description>"equipment"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>274</ID>
+                  <Description>"head"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>275</ID>
+                      <Description>"Name"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <VariableType>String</VariableType>
+                      <Length>25</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>8</Offset>
+                        <Offset>4</Offset>
+                        <Offset>8</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>276</ID>
+                      <Description>"id"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>10C</Offset>
+                        <Offset>8</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>277</ID>
+                      <Description>"defense"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>C0</Offset>
+                        <Offset>8</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>278</ID>
+                      <Description>"val (in copper)"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>FC</Offset>
+                        <Offset>8</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>279</ID>
+                  <Description>"chest"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>280</ID>
+                      <Description>"Name"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <VariableType>String</VariableType>
+                      <Length>25</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>8</Offset>
+                        <Offset>4</Offset>
+                        <Offset>C</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>281</ID>
+                      <Description>"id"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>10C</Offset>
+                        <Offset>C</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>282</ID>
+                      <Description>"defense"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>C0</Offset>
+                        <Offset>C</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>283</ID>
+                      <Description>"val (in copper)"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>FC</Offset>
+                        <Offset>C</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>284</ID>
+                  <Description>"legs"</Description>
+                  <Options moHideChildren="1"/>
+                  <LastState Value="" RealAddress="00000000"/>
+                  <GroupHeader>1</GroupHeader>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>285</ID>
+                      <Description>"Name"</Description>
+                      <ShowAsHex>1</ShowAsHex>
+                      <VariableType>String</VariableType>
+                      <Length>20</Length>
+                      <Unicode>1</Unicode>
+                      <ZeroTerminate>1</ZeroTerminate>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>8</Offset>
+                        <Offset>4</Offset>
+                        <Offset>10</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>286</ID>
+                      <Description>"id"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>10C</Offset>
+                        <Offset>10</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>287</ID>
+                      <Description>"defense"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>C0</Offset>
+                        <Offset>10</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                    <CheatEntry>
+                      <ID>288</ID>
+                      <Description>"val (in copper)"</Description>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>[players]</Address>
+                      <Offsets>
+                        <Offset>FC</Offset>
+                        <Offset>10</Offset>
+                        <Offset>98</Offset>
+                        <Offset>8</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>426</ID>
+              <Description>"buffImmune"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>434</ID>
+                  <Description>"keep changes"</Description>
+                  <LastState/>
+                  <VariableType>Auto Assembler Script</VariableType>
+                  <AssemblerScript>[ENABLE]
+//alternatively, try aobscan(INJECT,C6 44 10 08 00 FF)
+//assert(Terraria.Player::Update+3F4E, C6 44 10 08 00 FF)
+//assert(Terraria.Player::Update+3F4E, C6 44 02 08 00 FF)
+assert(Terraria.Player::Update+3F30, C6 44 02 08 00 FF)
+Terraria.Player::Update+3F30:
+db 90 90 90 90 90
+//mov byte ptr [edx+eax+08],00
+
+[DISABLE]
+Terraria.Player::Update+3F30:
+db c6 44 02 08 00
+//mov byte ptr [edx+eax+08],00
+//alt cc 44 02 08 00
+
+{
+// ORIGINAL CODE - INJECTION POINT: 3E923F9E
+
+3E923F6E: BA 93 00 00 00                 -  mov edx,00000093
+3E923F73: FF 15 D0 D7 88 03              -  call dword ptr [0388D7D0]
+3E923F79: 33 D2                          -  xor edx,edx
+3E923F7B: 89 95 84 FE FF FF              -  mov [ebp-0000017C],edx
+3E923F81: EB 26                          -  jmp 3E923FA9
+3E923F83: 8B 85 84 FE FF FF              -  mov eax,[ebp-0000017C]
+3E923F89: 8B 95 F0 EE FF FF              -  mov edx,[ebp-00001110]
+3E923F8F: 8B 92 A4 00 00 00              -  mov edx,[edx+000000A4]
+3E923F95: 3B 42 04                       -  cmp eax,[edx+04]
+3E923F98: 0F 83 6D 68 01 00              -  jae 3E93A80B
+// ---------- INJECTING HERE ----------
+3E923F9E: C6 44 10 08 00                 -  mov byte ptr [eax+edx+08],00
+// ---------- DONE INJECTING  ----------
+3E923FA3: FF 85 84 FE FF FF              -  inc [ebp-0000017C]
+3E923FA9: 81 BD 84 FE FF FF BF 00 00 00  -  cmp [ebp-0000017C],000000BF
+3E923FB3: 7C CE                          -  jnge 3E923F83
+3E923FB5: 8B 8D F0 EE FF FF              -  mov ecx,[ebp-00001110]
+3E923FBB: 8B 55 DC                       -  mov edx,[ebp-24]
+3E923FBE: FF 15 F0 D8 88 03              -  call dword ptr [0388D8F0]
+3E923FC4: 8B 85 F0 EE FF FF              -  mov eax,[ebp-00001110]
+3E923FCA: 8B 40 08                       -  mov eax,[eax+08]
+3E923FCD: 3B 05 54 59 1B 00              -  cmp eax,[001B5954]
+3E923FD3: 75 49                          -  jne 3E92401E
+}
+
+</AssemblerScript>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>427</ID>
+                  <Description>"num_elements"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>4</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>432</ID>
+                  <Description>"20 (poisoned)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>1C</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>437</ID>
+                  <Description>"24 (On Fire!)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>438</ID>
+                  <Description>"68 (suffocation)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>4C</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>433</ID>
+                  <Description>"149 (webbed)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>9D</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>436</ID>
+                  <Description>"156 (stoned)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>A4</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>435</ID>
+                  <Description>"47 (frozen)"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>37</Offset>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>289</ID>
+              <Description>"slot 1 (change item power, speed, value, etc)"</Description>
+              <Options moHideChildren="1"/>
+              <LastState Value="" RealAddress="00000000"/>
+              <GroupHeader>1</GroupHeader>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>290</ID>
+                  <Description>"addr (read only)"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>291</ID>
+                  <Description>"Name"</Description>
+                  <ShowAsHex>1</ShowAsHex>
+                  <VariableType>String</VariableType>
+                  <Length>20</Length>
+                  <Unicode>1</Unicode>
+                  <ZeroTerminate>1</ZeroTerminate>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>8</Offset>
+                    <Offset>4</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>293</ID>
+                  <Description>"id (vanity)"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>6C</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>494</ID>
+                  <Description>"net id"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>10C</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>294</ID>
+                  <Description>"defense"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>C0</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>295</ID>
+                  <Description>"use time"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[Terraria.Lighting::LightTiles+11e]</Address>
+                  <Offsets>
+                    <Offset>7C</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>85</Key>
+                      </Keys>
+                      <Value>2</Value>
+                      <ID>0</ID>
+                    </Hotkey>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>73</Key>
+                      </Keys>
+                      <Value>8</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>296</ID>
+                  <Description>"pick power"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>88</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>297</ID>
+                  <Description>"axe power"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>8C</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>298</ID>
+                  <Description>"hammer power"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>90</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>299</ID>
+                  <Description>"fishing power"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>58</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>300</ID>
+                  <Description>"val (in copper)"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>FC</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>301</ID>
+                  <Description>"stack"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>80</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>302</ID>
+                  <Description>"max stack"</Description>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>84</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>303</ID>
+                  <Description>"damage"</Description>
+                  <ShowAsSigned>1</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>A4</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>304</ID>
+                  <Description>"knockback"</Description>
+                  <VariableType>Float</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>A8</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>305</ID>
+                  <Description>"autofire"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[Terraria.Lighting::LightTiles+11e]</Address>
+                  <Offsets>
+                    <Offset>12E</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                  <Hotkeys>
+                    <Hotkey>
+                      <Action>Set Value</Action>
+                      <Keys>
+                        <Key>17</Key>
+                        <Key>66</Key>
+                      </Keys>
+                      <Value>1</Value>
+                      <ID>1</ID>
+                    </Hotkey>
+                  </Hotkeys>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>306</ID>
+                  <Description>"prefix"</Description>
+                  <VariableType>Byte</VariableType>
+                  <Address>[players]</Address>
+                  <Offsets>
+                    <Offset>146</Offset>
+                    <Offset>8</Offset>
+                    <Offset>BC</Offset>
+                    <Offset>8</Offset>
+                  </Offsets>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>172</ID>
+      <Description>"Craft Anything"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>//define(recipe1, Terraria.Recipe::FindRecipes+69)
+define(recipe1, Terraria.Recipe::FindRecipes+6f)
+//define(recipe2, Terraria.Recipe::FindRecipes+78)
+define(recipe2, Terraria.Recipe::FindRecipes+7e)
+//define(recipe3, Terraria.Recipe::FindRecipes+89)
+define(recipe3, Terraria.Recipe::FindRecipes+8f)
+
+[ENABLE]
+assert(recipe1, 33 c9)
+assert(recipe2, 33 d2)
+//assert(recipe3, 7E 2e)
+assert(recipe3, 7E 34)
+
+recipe1:
+mov ecx,edx
+
+recipe2:
+nop
+nop
+
+recipe3:
+db EB 36
+//alt jmp Terraria.Recipe::FindRecipes+C7
+
+[DISABLE]
+recipe1:
+db 33 c9
+//alt: xor ecx,ecx
+recipe2:
+db 33 d2
+//alt: xor edx,edx
+recipe3:
+//db 7E 2e
+db 7E 34
+//alt: jle Terraria.Recipe::FindRecipes+C5
+
+
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>40</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>496</ID>
+      <Description>"One Hit Kill"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe (paused)
+  Version: 
+  Date   : 2017-03-06
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,29 86 F8 00 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [esi+000000F8],0 // sub [esi+000000F8],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 86 F8 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 50F1A5DD
+
+""+50F1A5AE: A1 94 70 AB 05     -  mov eax,[05AB7094]
+""+50F1A5B3: 8B 96 B8 00 00 00  -  mov edx,[esi+000000B8]
+""+50F1A5B9: 3B 50 04           -  cmp edx,[eax+04]
+""+50F1A5BC: 0F 83 57 03 00 00  -  jae 50F1A919
+""+50F1A5C2: 8B 44 90 08        -  mov eax,[eax+edx*4+08]
+""+50F1A5C6: 8B 80 FC 00 00 00  -  mov eax,[eax+000000FC]
+""+50F1A5CC: 89 86 FC 00 00 00  -  mov [esi+000000FC],eax
+""+50F1A5D2: EB 0F              -  jmp 50F1A5E3
+""+50F1A5D4: F2 0F 10 45 E8     -  movsd xmm0,[ebp-18]
+""+50F1A5D9: F2 0F 2C C0        -  cvttsd2si eax,xmm0
+// ---------- INJECTING HERE ----------
+""+50F1A5DD: 29 86 F8 00 00 00  -  sub [esi+000000F8],eax
+// ---------- DONE INJECTING  ----------
+""+50F1A5E3: D9 45 18           -  fld dword ptr [ebp+18]
+""+50F1A5E6: D9 EE              -  fldz 
+""+50F1A5E8: DF F1              -  fcomip st(0),st(1)
+""+50F1A5EA: DD D8              -  fstp st(0)
+""+50F1A5EC: 0F 8A 49 02 00 00  -  jp 50F1A83B
+""+50F1A5F2: 0F 83 43 02 00 00  -  jae 50F1A83B
+""+50F1A5F8: D9 86 08 01 00 00  -  fld dword ptr [esi+00000108]
+""+50F1A5FE: D9 EE              -  fldz 
+""+50F1A600: DF F1              -  fcomip st(0),st(1)
+""+50F1A602: DD D8              -  fstp st(0)
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>497</ID>
+      <Description>"One hit kill others"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe (paused)
+  Version: 
+  Date   : 2017-03-08
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT312312,29 82 F8 00 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edx+000000F8],0
+  jmp return
+
+INJECT312312:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT312312)
+
+[DISABLE]
+
+INJECT312312:
+  db 29 82 F8 00 00 00
+
+unregistersymbol(INJECT312312)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 2482A584
+
+""+2482A554: 0F 85 89 00 00 00              -  jne 2482A5E3
+""+2482A55A: 83 BE B8 00 00 00 00           -  cmp dword ptr [esi+000000B8],00
+""+2482A561: 7C 71                          -  jl 2482A5D4
+""+2482A563: A1 94 70 01 05                 -  mov eax,[05017094]
+""+2482A568: 8B 96 B8 00 00 00              -  mov edx,[esi+000000B8]
+""+2482A56E: 3B 50 04                       -  cmp edx,[eax+04]
+""+2482A571: 0F 83 A2 03 00 00              -  jae 2482A919
+""+2482A577: 8B 54 90 08                    -  mov edx,[eax+edx*4+08]
+""+2482A57B: F2 0F 10 45 E8                 -  movsd xmm0,[ebp-18]
+""+2482A580: F2 0F 2C C0                    -  cvttsd2si eax,xmm0
+// ---------- INJECTING HERE ----------
+""+2482A584: 29 82 F8 00 00 00              -  sub [edx+000000F8],eax
+// ---------- DONE INJECTING  ----------
+""+2482A58A: A1 94 70 01 05                 -  mov eax,[05017094]
+""+2482A58F: 8B 96 B8 00 00 00              -  mov edx,[esi+000000B8]
+""+2482A595: 3B 50 04                       -  cmp edx,[eax+04]
+""+2482A598: 0F 83 7B 03 00 00              -  jae 2482A919
+""+2482A59E: 8B 44 90 08                    -  mov eax,[eax+edx*4+08]
+""+2482A5A2: 8B 80 F8 00 00 00              -  mov eax,[eax+000000F8]
+""+2482A5A8: 89 86 F8 00 00 00              -  mov [esi+000000F8],eax
+""+2482A5AE: A1 94 70 01 05                 -  mov eax,[05017094]
+""+2482A5B3: 8B 96 B8 00 00 00              -  mov edx,[esi+000000B8]
+""+2482A5B9: 3B 50 04                       -  cmp edx,[eax+04]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>499</ID>
+      <Description>"inf farts"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-08
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT32131232132131,C6 86 3A 06 00 00 00) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov byte ptr [esi+0000063A],01
+  jmp return
+
+INJECT32131232132131:
+  jmp newmem
+  nop
+  nop
+return:
+registersymbol(INJECT32131232132131)
+
+[DISABLE]
+
+INJECT32131232132131:
+  db C6 86 3A 06 00 00 00
+
+unregistersymbol(INJECT32131232132131)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 0BC26DAC
+
+""+BC26D7A: C7 45 C4 01 00 00 00           -  mov [ebp-3C],00000001
+""+BC26D81: C6 86 34 06 00 00 00           -  mov byte ptr [esi+00000634],00
+""+BC26D88: EB 52                          -  jmp 0BC26DDC
+""+BC26D8A: 80 BE 37 06 00 00 00           -  cmp byte ptr [esi+00000637],00
+""+BC26D91: 74 10                          -  je 0BC26DA3
+""+BC26D93: C7 45 C0 01 00 00 00           -  mov [ebp-40],00000001
+""+BC26D9A: C6 86 37 06 00 00 00           -  mov byte ptr [esi+00000637],00
+""+BC26DA1: EB 39                          -  jmp 0BC26DDC
+""+BC26DA3: 80 BE 3A 06 00 00 00           -  cmp byte ptr [esi+0000063A],00
+""+BC26DAA: 74 10                          -  je 0BC26DBC
+// ---------- INJECTING HERE ----------
+""+BC26DAC: C6 86 3A 06 00 00 00           -  mov byte ptr [esi+0000063A],00
+// ---------- DONE INJECTING  ----------
+""+BC26DB3: C7 45 BC 01 00 00 00           -  mov [ebp-44],00000001
+""+BC26DBA: EB 20                          -  jmp 0BC26DDC
+""+BC26DBC: 80 BE 3D 06 00 00 00           -  cmp byte ptr [esi+0000063D],00
+""+BC26DC3: 74 10                          -  je 0BC26DD5
+""+BC26DC5: C6 86 3D 06 00 00 00           -  mov byte ptr [esi+0000063D],00
+""+BC26DCC: C7 45 B8 01 00 00 00           -  mov [ebp-48],00000001
+""+BC26DD3: EB 07                          -  jmp 0BC26DDC
+""+BC26DD5: C6 86 31 06 00 00 00           -  mov byte ptr [esi+00000631],00
+""+BC26DDC: C6 86 47 06 00 00 00           -  mov byte ptr [esi+00000647],00
+""+BC26DE3: C6 86 45 06 00 00 00           -  mov byte ptr [esi+00000645],00
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>500</ID>
+      <Description>"inf mana"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-08
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(tock,29 82 44 03 00 00 E9) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edx+00000344],200
+  jmp return
+
+tock:
+  jmp newmem
+  nop
+return:
+registersymbol(tock)
+
+[DISABLE]
+
+tock:
+  db 29 82 44 03 00 00
+
+unregistersymbol(tock)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 52201E5A
+
+""+52201E1E: 8B 85 74 E2 FF FF        -  mov eax,[ebp-00001D8C]
+""+52201E24: DB 80 F4 00 00 00        -  fild dword ptr [eax+000000F4]
+""+52201E2A: D9 9D 58 E2 FF FF        -  fstp dword ptr [ebp-00001DA8]
+""+52201E30: D9 85 58 E2 FF FF        -  fld dword ptr [ebp-00001DA8]
+""+52201E36: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E3C: D8 88 20 03 00 00        -  fmul dword ptr [eax+00000320]
+""+52201E42: DD 9D 44 E2 FF FF        -  fstp qword ptr [ebp-00001DBC]
+""+52201E48: F2 0F 10 85 44 E2 FF FF  -  movsd xmm0,[ebp-00001DBC]
+""+52201E50: F2 0F 2C C0              -  cvttsd2si eax,xmm0
+""+52201E54: 8B 95 78 E2 FF FF        -  mov edx,[ebp-00001D88]
+// ---------- INJECTING HERE ----------
+""+52201E5A: 29 82 44 03 00 00        -  sub [edx+00000344],eax
+// ---------- DONE INJECTING  ----------
+""+52201E60: E9 BE 00 00 00           -  jmp 52201F23
+""+52201E65: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E6B: 80 B8 05 06 00 00 00     -  cmp byte ptr [eax+00000605],00
+""+52201E72: 0F 84 A6 00 00 00        -  je 52201F1E
+""+52201E78: 8B 8D 78 E2 FF FF        -  mov ecx,[ebp-00001D88]
+""+52201E7E: FF 15 CC A6 96 06        -  call dword ptr [0696A6CC]
+""+52201E84: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E8A: 8B 80 44 03 00 00        -  mov eax,[eax+00000344]
+""+52201E90: 8B 95 74 E2 FF FF        -  mov edx,[ebp-00001D8C]
+""+52201E96: DB 82 F4 00 00 00        -  fild dword ptr [edx+000000F4]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Save the Animals!"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// This script makes animals and insects invincible!
+
+// -Sn34kyMofo (a.k.a. h3x1c)
+// Web: http://sn34kymofo.com
+// YouTube: http://youtube.com/seowhistleblower
+// CE Forum: http://forum.cheatengine.org/profile.php?mode=viewprofile&amp;u=349701
+
+[ENABLE]
+
+aobscan(aobSaveTheAnimals,29 86 E4 00 00 00)
+alloc(newmem,$1000)
+label(code)
+label(return)
+registersymbol(aobSaveTheAnimals)
+
+newmem:
+
+code:
+  cmp [esi+000000E8],5
+  je return
+  sub [esi+000000E4],eax
+  jmp return
+
+aobSaveTheAnimals:
+  jmp code
+  nop
+
+return:
+
+[DISABLE]
+
+aobSaveTheAnimals:
+  db 29 86 E4 00 00 00
+
+unregistersymbol(aobSaveTheAnimals)
+dealloc(newmem)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Player of Death!"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// This script finds the instructions related to multiple buffs, then sets them
+// with values accordingly. It also sets player health and mana to whatever
+// your current player's max values are for each of them, respectively, when
+// you take damage! Lastly, it detects worm and non-worm enemy damage and moves
+// 0 to an enemy's current health value.
+
+// -Sn34kyMofo (a.k.a. h3x1c)
+// Web: http://sn34kymofo.com
+// YouTube: http://youtube.com/seowhistleblower
+// CE Forum: http://forum.cheatengine.org/profile.php?mode=viewprofile&amp;u=349701
+
+[ENABLE]
+
+///////////////////////////////////////////////////////////
+{ This AOB scan sets health and mana to max player values }
+///////////////////////////////////////////////////////////
+
+aobscan(aobPlayerHealth,29 82 2C 03 00 00 83 7D)
+alloc(PlayerHealth,$60)
+label(exitPlayerHealth)
+registersymbol(aobPlayerHealth)
+registersymbol(PlayerHealth)
+
+PlayerHealth:
+  push eax
+  mov eax,[edx+00000324]
+  mov [edx+0000032C],eax
+  xor eax,eax
+  mov eax,[edx+00000334]
+  mov [edx+00000330],eax
+  pop eax
+  jmp exitPlayerHealth
+
+aobPlayerHealth:
+  jmp PlayerHealth
+  nop
+
+exitPlayerHealth:
+
+///////////////////////////////////////////////////////////////
+{ This AOB scan allows you to manually enable the Thorns buff }
+///////////////////////////////////////////////////////////////
+
+aobscan(aobThornsCheckOverride,D9 9E 24 04 00 00)
+alloc(ThornsCheckOverride,$20)
+label(exitThornsCheckOverride)
+registersymbol(aobThornsCheckOverride)
+registersymbol(ThornsCheckOverride)
+
+ThornsCheckOverride:
+  mov [esi+00000424],1
+
+  jmp exitThornsCheckOverride
+
+aobThornsCheckOverride:
+  jmp ThornsCheckOverride
+  nop
+
+exitThornsCheckOverride:
+
+////////////////////////////////////////////////////////////////////
+{ This AOB scan allows you to manually enable the NoKnockback buff }
+////////////////////////////////////////////////////////////////////
+
+aobscan(aobKnockbackCheckOverride,88 96 63 05 00 00)
+alloc(KnockbackCheckOverride,$20)
+label(exitKnockbackCheckOverride)
+registersymbol(aobKnockbackCheckOverride)
+registersymbol(KnockbackCheckOverride)
+
+KnockbackCheckOverride:
+  mov [esi+00000563],1
+
+  jmp exitKnockbackCheckOverride
+
+aobKnockbackCheckOverride:
+  jmp KnockbackCheckOverride
+  nop
+
+exitKnockbackCheckOverride:
+
+//////////////////////////////////////////////////////////////////////
+{ This AOB scan allows you to manually disable the ImmunityTime buff }
+//////////////////////////////////////////////////////////////////////
+
+aobscan(aobNoImmuneTime,C7 80 44 02 00 00 28 00 00 00)
+registersymbol(aobNoImmuneTime)
+
+aobNoImmuneTime+6:
+  db 00
+
+////////////////////////////////////////
+{This AOB scan detects non-worm enemies}
+////////////////////////////////////////
+
+aobscan(aobNonWorm,29 86 E4 00 00 00 D9)
+alloc(NonWorm,$20)
+label(exitNonWorm)
+registersymbol(aobNonWorm)
+registersymbol(NonWorm)
+
+NonWorm:
+  mov [esi+000000E4],0 //Take enemy health to 0
+  jmp exitNonWorm
+
+aobNonWorm:
+  jmp NonWorm
+  nop
+
+exitNonWorm:
+
+/////////////////////////////////////////
+{This AOB scan detects worm-type enemies}
+/////////////////////////////////////////
+
+aobscan(aobWorm,29 82 E4 00 00 00)
+alloc(Worm,$20)
+label(exitWorm)
+registersymbol(aobWorm)
+registersymbol(Worm)
+
+Worm:
+  mov [edx+000000E4],0 //Take enemy health to 0
+  jmp exitWorm
+
+aobWorm:
+  jmp Worm
+  nop
+
+exitWorm:
+
+////////////////////////////////
+{This AOB scan detects drowning}
+////////////////////////////////
+
+aobscan(aobDrowning,83 80 * 03 00 00 FE * * * 03 00 00 00)
+alloc(Drowning,$1000)
+label(exitDrowning)
+registersymbol(aobDrowning)
+registersymbol(Drowning)
+
+Drowning:
+  add dword ptr [eax+0000032C],00 //Don't remove health for drowning
+  jmp exitDrowning
+
+aobDrowning:
+  jmp Drowning
+  nop
+  nop
+
+exitDrowning:
+
+//////////////////////////////////////
+{This AOB scan detects health debuffs}
+//////////////////////////////////////
+
+aobscan(aobNegativeBuffs,FF 8B * 03 00 00 8D 7D B8)
+alloc(NegativeBuffs,$1000)
+label(exitNegativeBuffs)
+registersymbol(aobNegativeBuffs)
+registersymbol(NegativeBuffs)
+
+NegativeBuffs:
+  push eax
+  mov eax,[ebx+00000324] //Get max health
+  mov [ebx+0000032C],eax //Write max health to current health
+  pop eax
+  jmp exitNegativeBuffs
+
+aobNegativeBuffs:
+  jmp NegativeBuffs
+  nop
+  nop
+
+exitNegativeBuffs:
+
+////////////////////////////////////////////////////////////////
+{ This AOB scan prevents life drain from being crushed by sand }
+////////////////////////////////////////////////////////////////
+
+aobscan(aobSandCrush,83 83 2C 03 00 00 FB 8D)
+registersymbol(aobSandCrush)
+
+aobSandCrush+6:
+  db 00
+
+[DISABLE]
+
+//Player Health/Mana Disable Section
+
+dealloc(PlayerHealth)
+aobPlayerHealth:
+  db 29 82 2C 03 00 00 83 7D
+
+unregistersymbol(aobPlayerHealth)
+unregistersymbol(PlayerHealth)
+
+//Thorns Disable Section
+
+dealloc(ThornsCheckOverride)
+aobThornsCheckOverride:
+  db D9 9E 24 04 00 00
+
+unregistersymbol(aobThornsCheckOverride)
+unregistersymbol(ThornsCheckOverride)
+
+//NoKnockback Disable Section
+
+dealloc(KnockbackCheckOverride)
+aobKnockbackCheckOverride:
+  db 88 96 63 05 00 00
+
+unregistersymbol(aobKnockbackCheckOverride)
+unregistersymbol(KnockbackCheckOverride)
+
+//NoImmuneTime Disable Section
+
+aobNoImmuneTime+6:
+  db 28
+
+unregistersymbol(aobNoImmuneTime)
+
+//NonWorm Disable Section
+
+dealloc(NonWorm)
+aobNonWorm:
+  db 29 86 E4 00 00 00
+
+unregistersymbol(aobNonWorm)
+unregistersymbol(NonWorm)
+
+//Worm Disable Section
+
+dealloc(Worm)
+aobWorm:
+  db 29 82 E4 00 00 00
+
+unregistersymbol(aobWorm)
+unregistersymbol(Worm)
+
+//Drowning Disable Section
+
+dealloc(Drowning)
+aobDrowning:
+  db 83 80 2C 03 00 00 FE 83 B8
+
+unregistersymbol(aobDrowning)
+unregistersymbol(Drowning)
+
+//NegativeBuffs Disable Section
+
+dealloc(NegativeBuffs)
+aobNegativeBuffs:
+  db FF 8B 2C 03 00 00 8D 7D B8
+
+unregistersymbol(aobNegativeBuffs)
+unregistersymbol(NegativeBuffs)
+
+//SandCrush Disable Section
+
+aobSandCrush+6:
+  db FB
+
+unregistersymbol(aobSandCrush)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Magic Bug Net"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>// This script generates a random number in the range of Terraria's item ID
+// list, then gives you that item when you catch an enemy with the bug net.
+// You must attack an enemy at least once to be able to catch them! You can
+// still kill them like normal if you'd like; loot drops are the same.
+
+// -Sn34kyMofo (a.k.a. h3x1c)
+// Web: http://gamehackr.com
+// YouTube: http://youtube.com/seowhistleblower
+// CE Forum: http://forum.cheatengine.org/profile.php?mode=viewprofile&amp;u=349701
+
+[ENABLE]
+
+////////////////////////////////////////
+{This AOB scan detects non-worm enemies}
+////////////////////////////////////////
+
+aobscan(aobSpecialItemNet1,29 86 E4 00 00 00 D9)
+alloc(SpecialItemNet1,$80)
+label(exitSpecialItemNet1)
+label(item3800a)
+label(finish1)
+registersymbol(aobSpecialItemNet1)
+registersymbol(SpecialItemNet1)
+
+SpecialItemNet1:
+
+  push eax //Save eax and prepare it for rdtsc value
+  push ecx //Save ecx and prepare it for integer
+  push edx //Save edx and prepare it for rdtsc value + idiv remainder
+
+  mov ecx,ED8 //Move 3800 (the highest item id in Terraria) into ecx
+
+  rdtsc //Get system time stamp; values are stored in eax and edx
+  shr eax,2 //Shift eax bits right by 2 to help randomness
+  xor edx,edx //Clear edx to prevent possible negative number range
+  idiv ecx //Divide edxeax by ecx; remainder is stored in edx
+  cmp edx,0
+  je item3800a
+  mov [esi+140],edx //Move edx to Terraria.NPC offset 140, catchItem
+  jmp finish1
+
+item3800a:
+  mov [esi+140],ecx //Move 3800 to offset 140
+  jmp finish1
+
+finish1:
+  pop edx //Restore edx
+  pop ecx //Restore ecx
+  pop eax //Restore eax
+
+  sub [esi+000000E4],eax //Original Instruction: Subtract from enemy health.
+                         //BONUS: Change to mov [esi+000000E4],0 to enable
+                         //one-hit kills!
+
+  jmp exitSpecialItemNet1 //Back to life, back to reality. =)
+
+aobSpecialItemNet1:
+  jmp SpecialItemNet1
+  nop
+
+exitSpecialItemNet1:
+
+/////////////////////////////////////////
+{This AOB scan detects worm-type enemies}
+/////////////////////////////////////////
+
+aobscan(aobSpecialItemNet2,29 82 E4 00 00 00)
+alloc(SpecialItemNet2,$80)
+label(exitSpecialItemNet2)
+label(item3800b)
+label(finish2)
+registersymbol(aobSpecialItemNet2)
+registersymbol(SpecialItemNet2)
+
+SpecialItemNet2:
+
+  push eax //Save eax and prepare it for rdtsc value
+  push ecx //Save ecx and prepare it for integer
+  push edx //Save edx and prepare it for rdtsc value + idiv remainder
+
+  mov ecx,ED8 //Move 3800 (the highest item id in Terraria) into ecx
+
+  rdtsc //Get system time stamp; values are stored in eax and edx
+  shr eax,2 //Shift eax bits right by 2 to help randomness
+  xor edx,edx //Clear edx to prevent possible negative number range
+  idiv ecx //Divide edxeax by ecx; remainder is stored in edx
+  cmp edx,0
+  je item3800b
+  mov eax,edx
+  pop edx
+  mov [edx+140],eax //Move eax to Terraria.NPC offset 140, catchItem
+  jmp finish2
+
+item3800b:
+  pop edx
+  mov [edx+140],ecx //Move 3800 to offset 140
+  jmp finish2
+
+finish2:
+  pop ecx //Restore ecx
+  pop eax //Restore eax
+
+  sub [edx+000000E4],eax //Original Instruction: Subtract from enemy health.
+                         //BONUS: Change to mov [edx+000000E4],0 to enable
+                         //one-hit kills!
+
+  jmp exitSpecialItemNet2 //Back to life, back to reality. =)
+
+aobSpecialItemNet2:
+  jmp SpecialItemNet2
+  nop
+
+exitSpecialItemNet2:
+
+[DISABLE]
+
+dealloc(SpecialItemNet1)
+aobSpecialItemNet1:
+  db 29 86 E4 00 00 00 D9
+
+unregistersymbol(aobSpecialItemNet1)
+unregistersymbol(SpecialItemNet1)
+
+dealloc(SpecialItemNet2)
+aobSpecialItemNet2:
+  db 29 82 E4 00 00 00
+
+unregistersymbol(aobSpecialItemNet2)
+unregistersymbol(SpecialItemNet2)
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>6</ID>
+      <Description>"Time Hacks"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"StopTime"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(FastForwardTime,3C ?? ?? ?? C3 C7 05 ?? ?? ?? ?? 01 00 00 00 C3 ?? ??)
+registersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 00
+
+[DISABLE]
+
+unregistersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 01
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Speed-Up Time (Fast)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(FastForwardTime,3C ?? ?? ?? C3 C7 05 ?? ?? ?? ?? 01 00 00 00 C3 ?? ??)
+registersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 25
+
+[DISABLE]
+
+unregistersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 01
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Speed-Up Time (Faster)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(FastForwardTime,3C ?? ?? ?? C3 C7 05 ?? ?? ?? ?? 01 00 00 00 C3 ?? ??)
+registersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 65
+
+[DISABLE]
+
+unregistersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 01
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>5</ID>
+          <Description>"Speed-Up Time (Fastest)"</Description>
+          <LastState/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(FastForwardTime,3C ?? ?? ?? C3 C7 05 ?? ?? ?? ?? 01 00 00 00 C3 ?? ??)
+registersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db FF
+
+[DISABLE]
+
+unregistersymbol(FastForwardTime)
+
+FastForwardTime+B:
+  db 01
+</AssemblerScript>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>502</ID>
+      <Description>"inf placeable blocks"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-14
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(testinject,FF 88 84 00 00 00 8B 85 74 E2 FF FF 83 B8 84 00 00 00 00 7F 1F) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000084], 0
+  jmp return
+
+testinject:
+  jmp newmem
+  nop
+return:
+registersymbol(testinject)
+
+[DISABLE]
+
+testinject:
+  db FF 88 84 00 00 00
+
+unregistersymbol(testinject)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 470F3042
+
+""+470F3012: 7F 10                 -  jg 470F3024
+""+470F3014: B8 01 00 00 00        -  mov eax,00000001
+""+470F3019: 25 FF 00 00 00        -  and eax,000000FF
+""+470F301E: 89 85 D4 F5 FF FF     -  mov [ebp-00000A2C],eax
+""+470F3024: 83 BD D4 F5 FF FF 00  -  cmp dword ptr [ebp-00000A2C],00
+""+470F302B: 74 49                 -  je 470F3076
+""+470F302D: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+""+470F3033: 83 B8 84 00 00 00 00  -  cmp dword ptr [eax+00000084],00
+""+470F303A: 7E 0C                 -  jle 470F3048
+""+470F303C: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+// ---------- INJECTING HERE ----------
+""+470F3042: FF 88 84 00 00 00     -  dec [eax+00000084]
+// ---------- DONE INJECTING  ----------
+""+470F3048: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+""+470F304E: 83 B8 84 00 00 00 00  -  cmp dword ptr [eax+00000084],00
+""+470F3055: 7F 1F                 -  jg 470F3076
+""+470F3057: 8B 85 78 E2 FF FF     -  mov eax,[ebp-00001D88]
+""+470F305D: 8B 80 84 02 00 00     -  mov eax,[eax+00000284]
+""+470F3063: 8B 95 78 E2 FF FF     -  mov edx,[ebp-00001D88]
+""+470F3069: 89 82 8C 02 00 00     -  mov [edx+0000028C],eax
+""+470F306F: C6 05 29 82 73 01 01  -  mov byte ptr [01738229],01
+""+470F3076: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+""+470F307C: 83 B8 84 00 00 00 00  -  cmp dword ptr [eax+00000084],00
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>503</ID>
+      <Description>"inf bullets &amp; arrows"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe (paused)
+  Version: 
+  Date   : 2017-03-14
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(dawdwadada,FF 8B 84 00 00 00 83) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [ebx+00000084], 0
+  jmp return
+
+dawdwadada:
+  jmp newmem
+  nop
+return:
+registersymbol(dawdwadada)
+
+[DISABLE]
+
+dawdwadada:
+  db FF 8B 84 00 00 00
+
+unregistersymbol(dawdwadada)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 470F5C73
+
+""+470F5C4A: 8B 87 84 02 00 00     -  mov eax,[edi+00000284]
+""+470F5C50: 8B 97 88 02 00 00     -  mov edx,[edi+00000288]
+""+470F5C56: 83 C2 FB              -  add edx,-05
+""+470F5C59: 3B C2                 -  cmp eax,edx
+""+470F5C5B: 7D 07                 -  jnl 470F5C64
+""+470F5C5D: C7 45 EC 01 00 00 00  -  mov [ebp-14],00000001
+""+470F5C64: 83 7D EC 00           -  cmp dword ptr [ebp-14],00
+""+470F5C68: 75 23                 -  jne 470F5C8D
+""+470F5C6A: 80 BB 31 01 00 00 00  -  cmp byte ptr [ebx+00000131],00
+""+470F5C71: 74 1A                 -  je 470F5C8D
+// ---------- INJECTING HERE ----------
+""+470F5C73: FF 8B 84 00 00 00     -  dec [ebx+00000084]
+// ---------- DONE INJECTING  ----------
+""+470F5C79: 83 BB 84 00 00 00 00  -  cmp dword ptr [ebx+00000084],00
+""+470F5C80: 7F 0B                 -  jg 470F5C8D
+""+470F5C82: C6 43 1C 00           -  mov byte ptr [ebx+1C],00
+""+470F5C86: 8B CB                 -  mov ecx,ebx
+""+470F5C88: E8 03 04 72 D7        -  call 1E816090
+""+470F5C8D: 8D 65 F4              -  lea esp,[ebp-0C]
+""+470F5C90: 5B                    -  pop ebx
+""+470F5C91: 5E                    -  pop esi
+""+470F5C92: 5F                    -  pop edi
+""+470F5C93: 5D                    -  pop ebp
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>504</ID>
+      <Description>"inf stacks"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-14
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(dawdawadaeaead,FF 88 84 00 00 00 8B 45 08 8B 74) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000084], 0
+  jmp return
+
+dawdawadaeaead:
+  jmp newmem
+  nop
+return:
+registersymbol(dawdawadaeaead)
+
+[DISABLE]
+
+dawdawadaeaead:
+  db FF 88 84 00 00 00
+
+unregistersymbol(dawdawadaeaead)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1E819D8A
+
+""+1E819D5C: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D61: C6 80 2D 01 00 00 01  -  mov byte ptr [eax+0000012D],01
+""+1E819D68: EB 0C                 -  jmp 1E819D76
+""+1E819D6A: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D6F: C6 80 2D 01 00 00 00  -  mov byte ptr [eax+0000012D],00
+""+1E819D76: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D7B: FF 80 84 00 00 00     -  inc [eax+00000084]
+""+1E819D81: 8B 45 08              -  mov eax,[ebp+08]
+""+1E819D84: 8B 74 87 08           -  mov esi,[edi+eax*4+08]
+""+1E819D88: 8B C6                 -  mov eax,esi
+// ---------- INJECTING HERE ----------
+""+1E819D8A: FF 88 84 00 00 00     -  dec [eax+00000084]
+// ---------- DONE INJECTING  ----------
+""+1E819D90: 8B 45 08              -  mov eax,[ebp+08]
+""+1E819D93: 8B 74 87 08           -  mov esi,[edi+eax*4+08]
+""+1E819D97: 83 BE 84 00 00 00 00  -  cmp dword ptr [esi+00000084],00
+""+1E819D9E: 7F 1E                 -  jg 1E819DBE
+""+1E819DA0: B9 40 45 DC 06        -  mov ecx,06DC4540
+""+1E819DA5: E8 1E 93 F0 E2        -  call 017230C8
+""+1E819DAA: 8B F0                 -  mov esi,eax
+""+1E819DAC: 8B CE                 -  mov ecx,esi
+""+1E819DAE: E8 25 F0 3A E8        -  call 06BC8DD8
+""+1E819DB3: 56                    -  push esi
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>505</ID>
+      <Description>"inf teleport"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe (paused)
+  Version: 
+  Date   : 2017-03-16
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,FF 88 84 00 00 00 8B 85 74 E2 FF FF 81 78 70 C4) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000084], 0
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db FF 88 84 00 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 492927DF
+
+""+492927B7: 6A 00                 -  push 00
+""+492927B9: 6A 00                 -  push 00
+""+492927BB: 6A 00                 -  push 00
+""+492927BD: B9 49 00 00 00        -  mov ecx,00000049
+""+492927C2: 83 CA FF              -  or edx,-01
+""+492927C5: E8 7E D8 97 FA        -  call 43C10048
+""+492927CA: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+""+492927D0: 83 B8 84 00 00 00 00  -  cmp dword ptr [eax+00000084],00
+""+492927D7: 7E 0C                 -  jle 492927E5
+""+492927D9: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+// ---------- INJECTING HERE ----------
+""+492927DF: FF 88 84 00 00 00     -  dec [eax+00000084]
+// ---------- DONE INJECTING  ----------
+""+492927E5: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+""+492927EB: 81 78 70 C4 0A 00 00  -  cmp [eax+70],00000AC4
+""+492927F2: 0F 85 0F 04 00 00     -  jne 49292C07
+""+492927F8: 8B 85 78 E2 FF FF     -  mov eax,[ebp-00001D88]
+""+492927FE: 83 B8 84 02 00 00 00  -  cmp dword ptr [eax+00000284],00
+""+49292805: 0F 8E FC 03 00 00     -  jng 49292C07
+""+4929280B: 8B 85 78 E2 FF FF     -  mov eax,[ebp-00001D88]
+""+49292811: 83 B8 8C 02 00 00 00  -  cmp dword ptr [eax+0000028C],00
+""+49292818: 75 1D                 -  jne 49292837
+""+4929281A: 8B 85 74 E2 FF FF     -  mov eax,[ebp-00001D8C]
+}
+</AssemblerScript>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>506</ID>
+      <Description>"inf health"</Description>
+      <LastState Activated="1"/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-18
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,29 82 40 03 00 00 83 7D) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub [edx+00000340],0//sub [edx+00000340],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 82 40 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 28010E22
+
+""+28010DF8: 89 85 40 FE FF FF              -  mov [ebp-000001C0],eax
+""+28010DFE: 0F B6 45 0C                    -  movzx eax,byte ptr [ebp+0C]
+""+28010E02: 50                             -  push eax
+""+28010E03: 6A 00                          -  push 00
+""+28010E05: 8B 95 40 FE FF FF              -  mov edx,[ebp-000001C0]
+""+28010E0B: 8B CE                          -  mov ecx,esi
+""+28010E0D: FF 15 64 65 9B 06              -  call dword ptr [069B6564]
+""+28010E13: F2 0F 10 45 E0                 -  movsd xmm0,[ebp-20]
+""+28010E18: F2 0F 2C C0                    -  cvttsd2si eax,xmm0
+""+28010E1C: 8B 95 18 FE FF FF              -  mov edx,[ebp-000001E8]
+// ---------- INJECTING HERE ----------
+""+28010E22: 29 82 40 03 00 00              -  sub [edx+00000340],eax
+// ---------- DONE INJECTING  ----------
+""+28010E28: 83 7D 08 FF                    -  cmp dword ptr [ebp+08],-01
+""+28010E2C: 0F 85 95 00 00 00              -  jne 28010EC7
+""+28010E32: 8B 85 18 FE FF FF              -  mov eax,[ebp-000001E8]
+""+28010E38: C6 80 51 05 00 00 01           -  mov byte ptr [eax+00000551],01
+""+28010E3F: DD 45 E0                       -  fld qword ptr [ebp-20]
+""+28010E42: D9 E8                          -  fld1 
+""+28010E44: DF F1                          -  fcomip st(0),st(1)
+""+28010E46: DD D8                          -  fstp st(0)
+""+28010E48: 7A 30                          -  jp 28010E7A
+""+28010E4A: 75 2E                          -  jne 28010E7A
+}
+</AssemblerScript>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys>
+            <Key>34</Key>
+          </Keys>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Change of dec [ebx+00000084]</Description>
+      <Address>46A65C73</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BB</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub [edx+00000344],eax</Description>
+      <Address>46A41E5A</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>95</Byte>
+        <Byte>78</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>29</Byte>
+        <Byte>82</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>BE</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>46A63042</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>1D429982</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>1D42914D</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>A1</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>1D428F8C</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub [esi+00000344],edi</Description>
+      <Address>1E63AA98</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>29</Byte>
+        <Byte>BE</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub [edx+00000344],eax</Description>
+      <Address>50CF1E5A</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>95</Byte>
+        <Byte>78</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>29</Byte>
+        <Byte>82</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>E9</Byte>
+        <Byte>BE</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>50D126FA</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>23449982</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [ebx+00000084]</Description>
+      <Address>50D15C73</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BB</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>23448F8C</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>50D13042</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of sub [esi+00000344],edi</Description>
+      <Address>255FAA98</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>0C</Byte>
+        <Byte>85</Byte>
+        <Byte>C0</Byte>
+        <Byte>74</Byte>
+        <Byte>06</Byte>
+      </Before>
+      <Actual>
+        <Byte>29</Byte>
+        <Byte>BE</Byte>
+        <Byte>44</Byte>
+        <Byte>03</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>B8</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>2344914D</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>84</Byte>
+        <Byte>A1</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [ebx+00000084]</Description>
+      <Address>52225C73</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BB</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>15919982</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>C6</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>45</Byte>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>52223042</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>15918F8C</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov byte ptr [esi+0000063A],00</Description>
+      <Address>0BC26DAC</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>C6</Byte>
+        <Byte>86</Byte>
+        <Byte>3A</Byte>
+        <Byte>06</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>C7</Byte>
+        <Byte>45</Byte>
+        <Byte>BC</Byte>
+        <Byte>01</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [eax+00000084]</Description>
+      <Address>522227DF</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+        <Byte>FF</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>88</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>85</Byte>
+        <Byte>74</Byte>
+        <Byte>E2</Byte>
+        <Byte>FF</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [ebx+00000084]</Description>
+      <Address>46D85C73</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>74</Byte>
+        <Byte>1A</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8B</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>83</Byte>
+        <Byte>BB</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of mov [ecx],eax</Description>
+      <Address>676220E9</Address>
+      <ModuleName>clr.dll</ModuleName>
+      <ModuleNameOffset>220E9</ModuleNameOffset>
+      <Before>
+        <Byte>8B</Byte>
+        <Byte>02</Byte>
+        <Byte>83</Byte>
+        <Byte>EB</Byte>
+        <Byte>10</Byte>
+      </Before>
+      <Actual>
+        <Byte>89</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>42</Byte>
+        <Byte>04</Byte>
+        <Byte>89</Byte>
+        <Byte>41</Byte>
+      </After>
+    </CodeEntry>
+    <CodeEntry>
+      <Description>Change of dec [esi+00000084]</Description>
+      <Address>4BBEA42C</Address>
+      <ModuleName/>
+      <ModuleNameOffset>0</ModuleNameOffset>
+      <Before>
+        <Byte>08</Byte>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+      </Before>
+      <Actual>
+        <Byte>FF</Byte>
+        <Byte>8E</Byte>
+        <Byte>84</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Actual>
+      <After>
+        <Byte>8B</Byte>
+        <Byte>74</Byte>
+        <Byte>87</Byte>
+        <Byte>08</Byte>
+        <Byte>83</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>afish</Name>
+      <Address>13360A58</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>timer_aob</Name>
+      <Address>122D242B</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>INJECT32131232132131</Name>
+      <Address>0BC26DAC</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>players</Name>
+      <Address>28C0566E</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dawdawadaeaead</Name>
+      <Address> 27FC9D82</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>dawdwadada</Name>
+      <Address> 46D85C73</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>testinject</Name>
+      <Address> 46D83042</Address>
+    </SymbolEntry>
+    <SymbolEntry>
+      <Name>tock</Name>
+      <Address> 46D61E5A</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
