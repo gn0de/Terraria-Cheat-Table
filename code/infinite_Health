@@ -1,0 +1,63 @@
+{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-18
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(INJECT,29 82 40 03 00 00 83 7D) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  sub [edx+00000340],0//sub [edx+00000340],eax
+  jmp return
+
+INJECT:
+  jmp newmem
+  nop
+return:
+registersymbol(INJECT)
+
+[DISABLE]
+
+INJECT:
+  db 29 82 40 03 00 00
+
+unregistersymbol(INJECT)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 28010E22
+
+""+28010DF8: 89 85 40 FE FF FF              -  mov [ebp-000001C0],eax
+""+28010DFE: 0F B6 45 0C                    -  movzx eax,byte ptr [ebp+0C]
+""+28010E02: 50                             -  push eax
+""+28010E03: 6A 00                          -  push 00
+""+28010E05: 8B 95 40 FE FF FF              -  mov edx,[ebp-000001C0]
+""+28010E0B: 8B CE                          -  mov ecx,esi
+""+28010E0D: FF 15 64 65 9B 06              -  call dword ptr [069B6564]
+""+28010E13: F2 0F 10 45 E0                 -  movsd xmm0,[ebp-20]
+""+28010E18: F2 0F 2C C0                    -  cvttsd2si eax,xmm0
+""+28010E1C: 8B 95 18 FE FF FF              -  mov edx,[ebp-000001E8]
+// ---------- INJECTING HERE ----------
+""+28010E22: 29 82 40 03 00 00              -  sub [edx+00000340],eax
+// ---------- DONE INJECTING  ----------
+""+28010E28: 83 7D 08 FF                    -  cmp dword ptr [ebp+08],-01
+""+28010E2C: 0F 85 95 00 00 00              -  jne 28010EC7
+""+28010E32: 8B 85 18 FE FF FF              -  mov eax,[ebp-000001E8]
+""+28010E38: C6 80 51 05 00 00 01           -  mov byte ptr [eax+00000551],01
+""+28010E3F: DD 45 E0                       -  fld qword ptr [ebp-20]
+""+28010E42: D9 E8                          -  fld1 
+""+28010E44: DF F1                          -  fcomip st(0),st(1)
+""+28010E46: DD D8                          -  fstp st(0)
+""+28010E48: 7A 30                          -  jp 28010E7A
+""+28010E4A: 75 2E                          -  jne 28010E7A
+}
