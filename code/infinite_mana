@@ -1,0 +1,122 @@
+{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-19
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-08
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(tock,29 82 44 03 00 00 E9) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  mov [edx+00000344],200
+  jmp return
+
+tock:
+  jmp newmem
+  nop
+return:
+registersymbol(tock)
+
+aobscan(INJECT2,29 BE 44 03 00 00 B8 01 00 00 00 8D 65 F8 5E 5F 5D C2 08 00 80) // should be unique
+alloc(newmem2,$1000)
+
+label(code2)
+label(return2)
+
+newmem2:
+
+code2:
+  add [esi+00000344],0
+  jmp return2
+
+INJECT2:
+  jmp newmem2
+  nop
+return2:
+registersymbol(INJECT2)
+
+[DISABLE]
+
+tock:
+  db 29 82 44 03 00 00
+
+unregistersymbol(tock)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 52201E5A
+
+""+52201E1E: 8B 85 74 E2 FF FF        -  mov eax,[ebp-00001D8C]
+""+52201E24: DB 80 F4 00 00 00        -  fild dword ptr [eax+000000F4]
+""+52201E2A: D9 9D 58 E2 FF FF        -  fstp dword ptr [ebp-00001DA8]
+""+52201E30: D9 85 58 E2 FF FF        -  fld dword ptr [ebp-00001DA8]
+""+52201E36: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E3C: D8 88 20 03 00 00        -  fmul dword ptr [eax+00000320]
+""+52201E42: DD 9D 44 E2 FF FF        -  fstp qword ptr [ebp-00001DBC]
+""+52201E48: F2 0F 10 85 44 E2 FF FF  -  movsd xmm0,[ebp-00001DBC]
+""+52201E50: F2 0F 2C C0              -  cvttsd2si eax,xmm0
+""+52201E54: 8B 95 78 E2 FF FF        -  mov edx,[ebp-00001D88]
+// ---------- INJECTING HERE ----------
+""+52201E5A: 29 82 44 03 00 00        -  sub [edx+00000344],eax
+// ---------- DONE INJECTING  ----------
+""+52201E60: E9 BE 00 00 00           -  jmp 52201F23
+""+52201E65: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E6B: 80 B8 05 06 00 00 00     -  cmp byte ptr [eax+00000605],00
+""+52201E72: 0F 84 A6 00 00 00        -  je 52201F1E
+""+52201E78: 8B 8D 78 E2 FF FF        -  mov ecx,[ebp-00001D88]
+""+52201E7E: FF 15 CC A6 96 06        -  call dword ptr [0696A6CC]
+""+52201E84: 8B 85 78 E2 FF FF        -  mov eax,[ebp-00001D88]
+""+52201E8A: 8B 80 44 03 00 00        -  mov eax,[eax+00000344]
+""+52201E90: 8B 95 74 E2 FF FF        -  mov edx,[ebp-00001D8C]
+""+52201E96: DB 82 F4 00 00 00        -  fild dword ptr [edx+000000F4]
+}
+INJECT2:
+  db 29 BE 44 03 00 00
+
+unregistersymbol(INJECT2)
+dealloc(newmem2)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 42E9AA98
+
+42E9AA73: D9 45 F4              -  fld dword ptr [ebp-0C]
+42E9AA76: D8 8E 20 03 00 00     -  fmul dword ptr [esi+00000320]
+42E9AA7C: DD 5D EC              -  fstp qword ptr [ebp-14]
+42E9AA7F: F2 0F 10 45 EC        -  movsd xmm0,[ebp-14]
+42E9AA84: F2 0F 2C F8           -  cvttsd2si edi,xmm0
+42E9AA88: 39 BE 44 03 00 00     -  cmp [esi+00000344],edi
+42E9AA8E: 7C 1C                 -  jl 42E9AAAC
+42E9AA90: 0F B6 45 0C           -  movzx eax,byte ptr [ebp+0C]
+42E9AA94: 85 C0                 -  test eax,eax
+42E9AA96: 74 06                 -  je 42E9AA9E
+// ---------- INJECTING HERE ----------
+42E9AA98: 29 BE 44 03 00 00     -  sub [esi+00000344],edi
+// ---------- DONE INJECTING  ----------
+42E9AA9E: B8 01 00 00 00        -  mov eax,00000001
+42E9AAA3: 8D 65 F8              -  lea esp,[ebp-08]
+42E9AAA6: 5E                    -  pop esi
+42E9AAA7: 5F                    -  pop edi
+42E9AAA8: 5D                    -  pop ebp
+42E9AAA9: C2 08 00              -  ret 0008
+42E9AAAC: 80 BE 05 06 00 00 00  -  cmp byte ptr [esi+00000605],00
+42E9AAB3: 74 3F                 -  je 42E9AAF4
+42E9AAB5: 0F B6 45 08           -  movzx eax,byte ptr [ebp+08]
+42E9AAB9: 85 C0                 -  test eax,eax
+}
