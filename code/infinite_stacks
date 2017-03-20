@@ -1,0 +1,63 @@
+{ Game   : Terraria.exe
+  Version: 
+  Date   : 2017-03-14
+  Author : gnode
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscan(dawdawadaeaead,FF 88 84 00 00 00 8B 45 08 8B 74) // should be unique
+alloc(newmem,$1000)
+
+label(code)
+label(return)
+
+newmem:
+
+code:
+  add [eax+00000084], 0
+  jmp return
+
+dawdawadaeaead:
+  jmp newmem
+  nop
+return:
+registersymbol(dawdawadaeaead)
+
+[DISABLE]
+
+dawdawadaeaead:
+  db FF 88 84 00 00 00
+
+unregistersymbol(dawdawadaeaead)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: 1E819D8A
+
+""+1E819D5C: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D61: C6 80 2D 01 00 00 01  -  mov byte ptr [eax+0000012D],01
+""+1E819D68: EB 0C                 -  jmp 1E819D76
+""+1E819D6A: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D6F: C6 80 2D 01 00 00 00  -  mov byte ptr [eax+0000012D],00
+""+1E819D76: A1 D4 70 4A 05        -  mov eax,[054A70D4]
+""+1E819D7B: FF 80 84 00 00 00     -  inc [eax+00000084]
+""+1E819D81: 8B 45 08              -  mov eax,[ebp+08]
+""+1E819D84: 8B 74 87 08           -  mov esi,[edi+eax*4+08]
+""+1E819D88: 8B C6                 -  mov eax,esi
+// ---------- INJECTING HERE ----------
+""+1E819D8A: FF 88 84 00 00 00     -  dec [eax+00000084]
+// ---------- DONE INJECTING  ----------
+""+1E819D90: 8B 45 08              -  mov eax,[ebp+08]
+""+1E819D93: 8B 74 87 08           -  mov esi,[edi+eax*4+08]
+""+1E819D97: 83 BE 84 00 00 00 00  -  cmp dword ptr [esi+00000084],00
+""+1E819D9E: 7F 1E                 -  jg 1E819DBE
+""+1E819DA0: B9 40 45 DC 06        -  mov ecx,06DC4540
+""+1E819DA5: E8 1E 93 F0 E2        -  call 017230C8
+""+1E819DAA: 8B F0                 -  mov esi,eax
+""+1E819DAC: 8B CE                 -  mov ecx,esi
+""+1E819DAE: E8 25 F0 3A E8        -  call 06BC8DD8
+""+1E819DB3: 56                    -  push esi
+}
